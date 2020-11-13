@@ -1,0 +1,36 @@
+<h3 class="title">Résultat retraite</h3>
+
+<div id="formCle">
+
+    <p>Ma retraite sera de {{retraite.pension.toFixed(2)}} € annuel brut</p>
+    
+    <p>J'aurais un taux de : {{retraite.taux}} %</p>
+   <div *ngIf="prevision">
+        <p>Je partirai à la retraite à l'age de {{ageDeDepart.ageLegal}} ans dans {{ageDeDepart.annee}} ans {{ageDeDepart.mois}} mois et {{ageDeDepart.jours}} jours</p>
+    </div>
+
+</div>
+
+<div *ngIf="retraite.pension/12 <= 642 && retraite.taux == 50 && trimestre <= 119">
+
+    Vous bénéficier d'un minium contributif de : 642,93 € <br><br>
+</div>
+
+<div *ngIf="retraite.pension/12 <= 642 && retraite.taux == 50 && trimestre >= 120">
+
+    Vous bénéficier d'un minium contributif de : 702,55 € <br><br>
+</div>
+
+<div *ngIf="aspaBool && ageDeDepart['age'] >= 65 && user.situation == 'celibataire'">
+    Vous pouvez bénéficier de l'ASPA d'un montant de {{aspa.toFixed(2)}} €
+</div>
+
+<div *ngIf="aspaBool && ageDeDepart['age'] >= 65 && (user.situation == 'marie' || user.situation == 'pacse')">
+    Vous pouvez bénéficier de l'ASPA d'un montant égal à la différence entre vos ressources de couples et 16 826,64 €
+    Attention vos ressources ne doivent pas dépasser ce montant. 
+</div>
+
+
+
+
+

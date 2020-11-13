@@ -1,0 +1,119 @@
+nav{
+    position: relative;
+    width: 90%;
+    left: 5%;
+    top: 50px;
+    display: flex;
+}
+
+.title{
+    display: block;
+    width: 100%;
+}
+
+#formCle{
+    width: 100%;
+}
+
+
+#formCle input{
+    height: 50px;
+    width: 50px;
+    font-size: 30px;
+    text-align: center;
+}
+
+.marginFull{
+    margin-right: 25px;
+}
+
+.marginLight{
+    margin-right: 5px;
+}
+
+
+
+#valider{
+    width: 100%;
+}
+
+#valider button{
+    margin-left: 65%;
+}
+
+#reset{
+    width: 100%;
+}
+
+#reset button{
+    margin-left: 65%;
+    cursor: pointer;
+    
+}
+
+#date{
+    width: 100%;
+}
+
+#calcul{
+    width: 100%;
+}
+
+
+#calcul button{
+    margin-left: 40%;
+}
+
+.button{
+    margin-top: 50px;
+    width: 100%;
+}
+
+.button button{
+    margin-right: 50px;
+}
+
+.button button:first-child{
+    margin-left: 40%;
+}
+
+.result{
+    color: #8e534d;
+}
+
+.marginFull:focus, .marginLight:focus{
+    outline: #8e534d 2px solid;
+    border: 0px;
+}
+
+table {
+    margin-top: 5%;
+    border-collapse:collapse;
+    width:130%;
+    }
+   th, td {
+    border:1px solid black;
+    width:20%;
+    }
+   td {
+    text-align:center;
+    }
+   caption {
+    font-weight:bold
+    }
+
+#formSam {
+    margin-left: 20%;
+}
+
+
+.valider{
+    margin-top: 50px;
+    width: 100%;
+}
+
+.valider button:first-child{
+    margin-left: 70%;
+    display: inline;
+    margin-right: 50px;
+}

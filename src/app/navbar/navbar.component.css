@@ -1,0 +1,63 @@
+nav{
+    display: flex;
+    width: 100%;
+    margin-top: 10px;
+    height: 10%;
+    background-color: #fff;
+    margin: 0;
+    border-bottom: 4px solid #b7736c;
+}
+
+.leftNav{
+
+}
+
+.leftNav{
+    width: 90%;
+}
+
+#home{
+    position: relative;
+    font-size: 60px;
+    cursor: pointer;
+    color: #8e534d !important;
+    top: 10px;
+    margin-left: 40px;
+    display: inline-block;
+}
+
+h2{
+    position: relative;
+    color: #8e534d !important;
+    display: inline-block;
+    font-size: 40px;
+    margin: 0;
+    margin-left: 60px;
+    top: 4px;
+}
+
+.rightNav{
+    display: flex;
+    width: 30%;
+}
+
+.infoUserLeft{
+    width: 50%;
+}
+
+
+.infoUserRight{
+    width: 50%;
+
+}
+
+.infoUser{
+    display: block;
+    margin-top: 5px;
+}
+
+#changeUser{
+    width: 200px;
+    font-size: 15px;
+    height: 30px;
+}

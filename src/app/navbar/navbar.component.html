@@ -1,0 +1,32 @@
+<nav>
+    <div class="leftNav">
+        <fa-icon [routerLink]="[ '' ]" id="home" [icon]="homeIcon"></fa-icon>
+        <h2>Bienvenue </h2>
+    </div>
+
+    <div class="rightNav">
+        <div class="infoUserLeft" *ngIf="user">
+            <div class="infoUser">
+                {{ user.nom }}
+                {{ user.prenom }}
+            </div>
+            <div class="infoUser">
+                {{ user.age | date:'dd-MM-yyyy'}}
+            </div>
+            <div class="infoUser">
+                {{ user.genre}}
+            </div>
+        </div>
+        <div class="infoUserRight" *ngIf="user">
+            <div class="infoUser">
+                {{ user.situation }}
+            </div>
+            <div class="infoUser">
+                {{ user.nbrEnfants }} enfant(s)
+            </div>           
+            <div class="infoUser">
+               <button id="changeUser" (click)="changeUser()">Changer d'utilisateur</button>
+            </div>
+        </div>
+    </div>
+</nav>

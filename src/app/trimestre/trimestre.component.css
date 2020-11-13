@@ -1,0 +1,58 @@
+nav{
+    position: relative;
+    width: 90%;
+    left: 5%;
+    top: 50px;
+    display: flex;
+    cursor: pointer;
+
+}
+
+.containerInput{
+    width: 100%;
+}
+
+.moisInput{
+    margin-bottom: 30px;
+}
+
+.moisInput label{
+    margin-right: 70px;
+}
+
+#calculTrimestre{
+    width: 100%;
+}
+
+#calculTrimestre button{
+    margin-left: 30%;
+}
+
+.Ntravaille{
+    width: 100%;
+    margin-top: 50px;
+}
+
+.rachatLabel{
+    margin-right: 25px;
+    width: 450px;
+}
+
+#seul, #assurance{
+    margin-right: 100px;
+}
+
+.valider{
+    margin-top: 50px;
+    width: 100%;
+}
+
+.valider button{
+    margin-left: 65%;
+}
+
+
+#trimestreSup{
+    width: 100%;
+    margin-top: 50px;
+}

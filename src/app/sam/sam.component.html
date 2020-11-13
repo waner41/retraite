@@ -1,0 +1,42 @@
+
+
+<div *ngIf="sam != 0">
+
+<h3 class="title"> Votre salaire annuel moyen est de {{sam}}</h3>
+
+</div>
+
+<form >
+    <div class="formSam">
+    Entreprise
+    <input  name="entreprise" type="text" [(ngModel)]="entreprise">
+    Salaire
+    <input type="number" name="salaire" [(ngModel)]="salaire">
+    Année
+    <input  type="number" name="annee" [(ngModel)]="annee">
+
+        </div>
+
+</form>
+
+
+<div class="valider">
+    <button class="btn btn-secondary" type="submit" (click)="addSalaires()">Ajouter annee</button>
+    <button class="btn btn-secondary" (click)="calculerSam()">Calculer</button>
+</div>
+<table class="table"> 
+    <thead class="thead-dark"> 
+        <tr> 
+        <td>Entreprise</td> 
+        <td>Brut annuel</td> 
+        <td>Annee</td>
+        </tr> 
+    </thead> 
+    <tbody> 
+        <tr *ngFor = "let salaire of salaires"> 
+        <td>{{ salaire.entreprise }}</td> 
+        <td>{{ salaire.salaire }}</td> 
+        <td>{{ salaire.annee }}</td> 
+        </tr>         
+    </tbody> 
+    </table> 

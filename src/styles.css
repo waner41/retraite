@@ -1,0 +1,163 @@
+/* You can add global styles to this file, and also import other style files */
+html, body,app-root, app-home, app-trimestre {
+    height: 100vh;
+    margin: 0;
+    position: relative;
+  background-color: #fff;
+  }
+
+  *{
+    font-size: 20px;
+  }
+
+  @font-face {
+    font-family: myFirstFont;
+    src: url("/assets/font/Lato/Lato-Regular.ttf");
+  }
+
+  * {
+    font-family: myFirstFont;
+    color:  #8e534d;
+  }
+
+  input{
+    width: 300px;
+    height: 35px;
+    color: #8e534d !important;
+
+  }
+
+  input::placeholder{
+    color: #8e534d;
+  }
+
+  input[type="radio"]{
+    width: 50px;
+    height: 20px;
+
+  }
+
+  button{
+    color: #8e534d;
+    width: 140px;
+    height: 47px;
+    background-color: #d98880;
+    border: 0;
+    background-color: #fdf0f0;
+    cursor: pointer;
+    border: 1px solid #8e534d;
+    outline: none !important;
+    box-shadow: none !important;
+    cursor: pointer;
+
+}
+
+button:hover{
+    color: #8e534d;
+    width: 140px;
+    height: 47px;
+    background-color: #d98880;
+    border: 0;
+    color: #fff;
+    cursor: pointer;
+}
+
+.navChoice{
+  height: 35px;
+  background-color: #fdf0f0e6;
+  margin-bottom: 50px;
+  cursor: pointer;
+  min-width: 150px;
+  text-align: center;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 0;
+  cursor: pointer !important;
+}
+
+.navChoice1{
+  border-left: 1px solid #fff;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+}
+
+.navChoice2{
+  border-left: 1px solid #fff;
+  border-right: 1px solid #fff;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+}
+
+.navChoice3{
+  border-left: 1px solid #fff;
+  border-right: 1px solid #fff;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+}
+
+.selectNav{
+  background-color: #d98880;
+  
+  box-shadow: -1px 2px #b7736c;
+}
+
+.selectNav p{
+  color: white!important;
+
+}
+
+.navChoice p{
+  margin: 0;
+  margin-top: 5px;
+}
+
+.container{
+  background-color:#D98880;
+  height: 100%;
+  
+}
+
+.main{
+  position: relative;
+  width: 80%;
+  left: 5%;
+  top: 10%;
+  min-height: 57%;
+  padding: 0% 5% 5% 5%;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #fdf0f0e6;
+  box-shadow: rgba(0, 0, 0, 0.55) -4px 4px 31px -1px;
+  border-radius: 10px;
+
+}
+
+h2{
+  color: #8e534d;
+  font-weight: 800;
+  font-size: 35px;
+  margin-bottom: 50px;
+}
+
+select{
+  color: #8e534d;
+  width: 300px;
+  height: 35px;
+
+}
+
+option{
+  color: #8e534d;
+  height: 35px;
+
+}
+
+label{
+  width: 40%;
+  position: relative;
+  display: inline-block;
+  color: #8e534d;
+  font-weight: 800;
+  margin-top: 25px;
+}
+

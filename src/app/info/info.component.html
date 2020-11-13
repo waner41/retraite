@@ -1,0 +1,75 @@
+
+<app-navbar></app-navbar>
+
+<div class="container">
+    <nav>
+        <div class="navChoice navChoice1" [ngClass]="{'selectNav': secu}" (click)="changeToSecu()">
+            <p>Calcul clé de sécurité</p>
+        </div>
+        <div class="navChoice navChoice2" [ngClass]="{'selectNav': pension}" (click)="changeToPension()">
+            <p>Date des versements des allocations / pension</p>
+        </div>
+
+        <div class="navChoice navChoice3" [ngClass]="{'selectNav': sam}" (click)="changeToSam()">
+            <p>Calcule du salaire annuel moyen</p>
+        </div>
+    </nav>
+
+    <div id="secu" class="main" *ngIf="secu">
+    <h2 class="title">Calcul clé sécurité</h2>
+
+
+        <div id="formCle">
+            <input class="marginFull" maxlength="1" name="secuKey[]" type="text" [(ngModel)]="secuKey[0]" ng-cha>
+            <input class="marginLight" maxlength="1" name="secuKey[]" type="text" [(ngModel)]="secuKey[1]">
+            <input class="marginFull" maxlength="1" name="secuKey[]" type="text" [(ngModel)]="secuKey[2]">
+            <input class="marginLight" maxlength="1" name="secuKey[]" type="text" [(ngModel)]="secuKey[3]">
+            <input class="marginFull" maxlength="1" name="secuKey[]" type="text" [(ngModel)]="secuKey[4]">
+            <input class="marginLight" maxlength="1" name="secuKey[]" type="text" [(ngModel)]="secuKey[5]">
+            <input class="marginFull" maxlength="1" name="secuKey[]" type="text" [(ngModel)]="secuKey[6]">
+            <input class="marginLight" maxlength="1" name="secuKey[]" type="text" [(ngModel)]="secuKey[7]">
+            <input class="marginLight" maxlength="1" name="secuKey[]" type="text" [(ngModel)]="secuKey[8]">
+            <input class="marginFull" maxlength="1" name="secuKey[]" type="text" [(ngModel)]="secuKey[9]">
+            <input class="marginLight" maxlength="1" name="secuKey[]" type="text" [(ngModel)]="secuKey[10]">
+            <input class="marginLight" maxlength="1" name="secuKey[]" type="text" [(ngModel)]="secuKey[11]">
+            <input class="marginFull" maxlength="1" name="secuKey[]" type="text" [(ngModel)]="secuKey[12]">
+            
+        </div>
+        <div class="button">
+            <button (click)="resest()">Effacer</button>
+            <button (click)="valider()">Valider</button>
+        </div>
+        <div class="result">
+            Votre clé est : {{ result }}
+        </div>
+    </div>
+
+    <div id="pension" class="main" *ngIf="pension">
+        <h2 class="title">Date de dépot de dossier</h2>
+
+        <div id="date">
+            <input datetime="yyyy-MM-dd HH:mm:ss" type="date" [(ngModel)]="dateVersement">
+
+        </div>
+        <div id="calcul">
+            <button (click)="calculeDateVersement()">
+                Calcul
+            </button>
+        </div>
+
+        <div class="result">
+            <p>Votre situation sera prise en compte à partir du : {{ nextDateVersement | date:'d-LL-y' }}</p>
+        </div>
+    </div>
+
+
+    <div id="sam" class="main" *ngIf="sam">
+        <h2 class="title">Calcule du salaire annuel moyen</h2>
+
+    <app-sam></app-sam>
+
+    </div>
+
+
+
+</div>

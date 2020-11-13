@@ -1,0 +1,73 @@
+<app-navbar [user]="user"></app-navbar>
+
+<div id="main">
+    
+    <div id="erreur" *ngIf="!isInfoValid && isInfoValid != null">
+        <p>Les informations de l'utilisateurs ne sont pas valides</p>
+    </div>
+
+    <div id="left">
+        <h2>Simulation de la retraite</h2>
+        <div [routerLink]="[ '/info']" id="info" class="btn-home">
+            <p>Informations pratiques</p>
+        </div>
+        <div id="pensions" class="btn-home" [ngClass]="{
+            buttonInvalid: !isInfoValid
+          }" (click)="goToPension()">
+            <p>Pensions / Allocations</p>
+        </div>
+        <div id="trimestres" class="btn-home" [ngClass]="{
+            buttonInvalid: !isInfoValid
+          }" (click)="goToTrimestre()">
+            <p>Trimestres</p>
+        </div>
+    </div>
+
+    <div id="right">
+        <h2>Informations utilisateur</h2>
+        <div id="userInfo">
+            <div class="userInfoInput">
+                <label for="nom">Nom : </label> <input type="text" name="nom" [(ngModel)]="nom">
+            </div>
+            
+            <div class="userInfoInput">
+                <label for="prenom">Prenom : </label> <input type="text" name="prenom" [(ngModel)]="prenom">
+            </div>
+            
+            <div class="userInfoInput">
+                <label for="age">Date de naissance : </label> <input type="date" name="age" [(ngModel)]="age">
+            </div>
+            
+            <div class="userInfoInput">
+                <label for="genre">Femme / Homme : </label>
+                <select name="genre" id="genre" [(ngModel)]="genre">
+                    <option value="femme">Femme</option>
+                    <option value="homme">Homme</option>
+                </select>
+            </div>
+
+            <div class="userInfoInput">
+                <label for="nbrEnfants">Nombre enfants</label> <input type="text" name="nbrEnfants" [(ngModel)]="nbrEnfants">
+            </div>
+
+            <div class="userInfoInputRadio">
+                <input type="radio" id="situation1" name="situation" value="celibataire" checked [(ngModel)]="situation">
+                <label for="situation1">Célibataire</label>
+                <input type="radio" id="situation4" name="situation" value="concubinage" [(ngModel)]="situation">
+                <label for="situation3">Concubinage</label>
+                <input type="radio" id="situation2" name="situation" value="marie" [(ngModel)]="situation">
+                <label for="situation2">Marié</label>
+                <input type="radio" id="situation3" name="situation" value="pacse" [(ngModel)]="situation">
+                <label for="situation3">Pacsé</label>
+              </div>
+
+              
+            
+            <div class="userInfoInput">
+                <button (click)="userInfoValid()">Valider</button>
+            </div>
+
+        </div>
+
+    </div>
+</div>

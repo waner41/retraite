@@ -1,0 +1,108 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+    <nav>
+        <div class="navChoice navChoice1" [ngClass]="{'selectNav': retraite}" (click)="changeToRetraite()">
+            <p>Retraite</p>
+        </div>
+        <div class="navChoice navChoice2" [ngClass]="{'selectNav': veuvage}" (click)="changeToVeuvage()">
+            <p>Veuvage</p>
+        </div>
+    </nav>
+
+
+    <div id="secu" class="main" *ngIf="retraite">
+        <h2 class="title">Calcul de votre retraite</h2>
+
+
+        <div id="formCle" *ngIf="calculRetraite">
+            <label>Salaire annuel brut moyen :</label> 
+            <input  name="salaire" type="number" [(ngModel)]="salaire"> €
+            <label>Trimestres inscrits sur le relevé de carrières :</label>
+            <input name="trimestre" type="number" [(ngModel)]="trimestre"> T
+            <label> Nombre de trimestres supplémentaires :</label>
+            <input  name="trimestreSupp" type="number" [(ngModel)]="trimestreSupp"> T
+            <div class="conditionsTaux">
+                <input type="radio" id="situation1" name="situation" (click)="showhdcp()" value="handicape" checked [(ngModel)]="situation">
+                <label for="situation1">Handicap</label>
+                <input type="radio" id="situation2" name="situation" (click)="showLongue()" value="longue" [(ngModel)]="situation">
+                <label for="situation2">Carrière longue</label>
+              </div>
+              <div *ngIf="longue">
+                <label> Nombre de trimestres cotisés avant vos 16 ans :</label>
+                <input  name="ageLongue1" type="number" [(ngModel)]="ageLongue16"> T
+                <label> Nombre de trimestres cotisés avant vos 20 ans :</label>
+                <input  name="ageLongue2" type="number"  [(ngModel)]="ageLongue20"> T
+            </div>
+
+            <div *ngIf="hdcp">
+                <label> Nombre de trimestres cotisés sous votre handicap :</label>
+                <input  name="ageLongue1" type="number" [(ngModel)]="trimestreHandicap"> T
+            </div>
+
+            <div>
+            <div class="valider">
+                <button  (click)="valider()">Valider</button>
+            </div>
+            
+        </div>
+        </div>
+
+        <div id="showPension" *ngIf="showPension">
+            <app-show-pension [retraite]="pensions" [ageDeDepart]="ageDeDepart" [trimestre]="trimestre"></app-show-pension>
+            <div class="retour" [routerLink]="[ '' ]">
+                <button class="valider">Retour</button>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="veuvage" class="main" *ngIf="veuvage">
+        <h2 class="title">Calcul de vos droit de veuvage</h2>
+        <div class="containerInput" >
+            <select name="choiceVeuvage" id="choiceVeuvage" (change)='onOptionsSelected($event)'>
+                <option value="revertion">
+                    Pension de réversion
+                </option>
+                <option value="veuvage">
+                    Allocation de veuvage
+                </option>
+            </select>
+        </div>
+        
+        <div *ngIf="veuvageOption">
+            <div> 
+
+                <label>Date décès</label><input type="date" name="dateDece" [(ngModel)]="dateDece">
+                <p>Trois derniers salaires bruts perçus avant le décès :</p>
+                <label>Mois 1 : </label><input type="text" [(ngModel)]="mois1"> €
+                <label>Mois 2 : </label><input type="text" [(ngModel)]="mois2"> €
+                <label>Mois 3 : </label><input type="text" [(ngModel)]="mois3"> €
+            </div>
+            
+            <div class="valider">
+                <button (click)="validerVeuvage()">Valider</button>
+            </div>
+
+            <p>{{ resVeuvage }}</p>
+
+        </div>
+
+        <div *ngIf="reversionOption">
+            <div>
+                <label for="salaireAnnuelBrut">Salaire annuel brut :</label><input id="salaireAnnuelBrut" name="salaireAnnuelBrut" type="text" [(ngModel)]="salaireAnnuelBrutReversion"> €
+                <div *ngIf="isCouple">
+                    <label for="salaireAnnuelBrutConjoint">Salaire annuel brut conjoint:</label><input id="salaireAnnuelBrut" name="salaireAnnuelBrut" type="text" [(ngModel)]="salaireAnnuelBrutConjointReversion"> €
+                </div>
+                <label for="salaireAnnuelBrutEpoux">Salaire annuel brut défunt(e) :</label><input id="salaireAnnuelBrutEpoux" name="salaireAnnuelBrutEpoux" type="text" [(ngModel)]="salaireAnnuelBrutEpoux"> €
+                <label for="totalMariageVeuf">Total mariage veuf/veuve :</label><input id="totalMariageVeuf" name="totalMariageVeuf" type="text" [(ngModel)]="totalMariageVeuf"> mois
+                <label for="totalMariageEpoux">Total mariage défunt(e) :</label><input id="totalMariageEpoux" name="totalMariageEpoux" type="text" [(ngModel)]="totalMariageEpoux"> mois
+            </div>
+            <div class="valider">
+                <button (click)="validerReversion()">Valider</button>
+            </div>
+            <p>{{ resReversion }}</p>
+        </div>
+
+    </div>
+</div>

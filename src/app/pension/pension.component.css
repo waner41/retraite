@@ -1,0 +1,55 @@
+nav{
+    position: relative;
+    width: 90%;
+    left: 5%;
+    top: 50px;
+    display: flex;
+}
+
+.main{
+    position: relative;
+    width: 80%;
+    left: 5%;
+    top: 10%;
+    border: 1px solid black;
+    height: 57%;
+    padding: 0% 5% 5% 5%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.title{
+    display: block;
+    width: 100%;
+}
+
+
+.valider{
+    margin-top: 50px;
+    width: 100%;
+}
+
+.valider button{
+    margin-left: 65%;
+}
+
+.retour{
+    width: 100%;
+}
+
+.retour button{
+    margin-right: 65%;
+}
+
+nav{
+    position: relative;
+    width: 90%;
+    left: 5%;
+    top: 50px;
+    display: flex;
+}
+
+
+.containerInput{
+    width: 100%;
+}

@@ -1,0 +1,143 @@
+
+<app-navbar></app-navbar>
+
+
+<div class="container">
+    <nav>
+        <div class="navChoice navChoice1" [ngClass]="{'selectNav': trimestNav}" (click)="changeNav('trimestNav')">
+            <p>Valider son trimestre</p>
+        </div>
+        <div class="navChoice navChoice1" [ngClass]="{'selectNav': nonTravailerNav}" (click)="changeNav('nonTravailerNav')">
+            <p>Périodes non travaillées</p>
+        </div>
+        <div class="navChoice navChoice1" [ngClass]="{'selectNav': rachatDeTrimestreNav}" (click)="changeNav('rachatDeTrimestreNav')">
+            <p>Rachat de trimestres</p>
+        </div>
+        <div class="navChoice navChoice2" [ngClass]="{'selectNav': TrimestreSupNav}" (click)="changeNav('TrimestreSupNav')">
+            <p>Trimestres supplémentaires</p>
+        </div>
+    </nav>
+    <div class="main" *ngIf="trimestNav">
+        <h1 class="title">Valider son trimestre</h1>
+
+        
+        <div class="containerInput">
+            <div class="moisInput">
+                <label for="mois1">1 mois</label>
+                <input type="text" id="mois1" name="mois1" [(ngModel)]="mois1">
+            </div>
+            <div class="moisInput">
+                <label for="mois2">2 mois</label>
+                <input type="text" id="mois2" name="mois2" [(ngModel)]="mois2">
+            </div>
+            
+            <div class="moisInput">
+                <label for="mois3">3 mois</label>    
+                <input type="text" id="mois3" name="mois3" [(ngModel)]="mois3">
+            </div>
+        </div>
+
+        <div id="calculTrimestre" class="valider">
+            <button (click)="calculTrimestreValid()">Calcul</button>
+        </div>
+        <div id="resultTrimestre">
+            <p>Le trimestre a été : {{ resultTrimestre }}</p>
+        </div>
+
+        
+    </div>
+
+    <div class="main" *ngIf="nonTravailerNav">
+
+        <div class="Ntravaille">
+            <div>
+                <label for="maladie">Maladie</label>
+                <input type="checkbox" name="situation" id="maladie" [(ngModel)]="maladie">
+            </div>
+
+            <div>
+                <label for="maladie">Invalidité</label>
+                <input type="checkbox" name="situation" id="invalitite" [(ngModel)]="invalitite">
+            </div>
+
+            <div>
+                <label for="maladie">Chomage</label>
+                <input type="checkbox" name="situation" id="chomage"  [(ngModel)]="chomageNt">
+            </div>
+
+
+            <div>
+                <label for="maladie">Service militaire</label>
+                <input type="checkbox" name="situation" id="serviceMilitaire"  [(ngModel)]="serviceMilitaire">
+            </div>
+            
+            <div>
+                <label for="maladie">RSA / RMI / AAH</label>
+                <input type="checkbox" name="situation" id="RSA"  [(ngModel)]="RSA">
+            </div>
+
+            <div id="okNonTravaile" class="valider">
+                <button (click)="nonTravailleInfo()">Valider</button>
+            </div>
+
+            <div>
+                <p *ngFor="let item of infoNonTravaille"> {{ item }} </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="main" *ngIf="rachatDeTrimestreNav">
+        <div>
+            <label for="etranger">Année d’activité salariée à l’étranger</label><input id="etranger" type="checkbox" [(ngModel)]="etranger">
+            <label for="tardRegimeG">Professions affiliés tardivement au régime général</label><input  id="tardRegimeG" type="checkbox" [(ngModel)]="tardRegimeG">
+            <label for="incomplete4T">Année incomplètes ne validant  pas 4 trimestres</label><input  id="incomplete4T" type="checkbox" [(ngModel)]="incomplete4T">
+            <label for="etudeSup">Les années d’études supérieures</label><input  id="etudeSup" type="checkbox" [(ngModel)]="etudeSup">
+            <label for="activiteSalarieAvant3">Une activité salariée remontant à plus de 3 ans </label><input  id="activiteSalarieAvant3" type="checkbox" [(ngModel)]="activiteSalarieAvant3">
+        </div>
+
+        <div *ngIf="etranger || tardRegimeG || incomplete4T || etudeSup || activiteSalarieAvant3">
+            <div class="containerInput">
+                <label class="rachatLabel" for="seul">titre du taux seul</label>
+                <input type="radio" name="rachat" id="seul" value="seul" [(ngModel)]="typeRachat">
+                <label class="rachatLabel" for="maladie">Au titre du taux seul et de la durée d'assurance</label>
+                <input type="radio" name="rachat" id="assurance" value="assurance" [(ngModel)]="typeRachat">
+            </div>
+            <div class="containerInput">
+                <label for="salaire">Salaire annuel brut</label>
+                <input type="text" name="rachat" id="salaire" value="salaire" [(ngModel)]="salaire">
+            </div>
+            <div class="containerInput valider">
+                <button (click)="calculRachat()">Valider</button>
+            </div>
+            <div *ngIf="coutRachat">Le rachat de trimestre vous coutera : {{ coutRachat }} €</div>
+        </div>
+    </div>
+
+    <div class="main" *ngIf="TrimestreSupNav">
+        <div id="trimestreSup">
+            <div class="">
+                <label for="enfantsEleves">Enfants nés, élevés</label>
+                <input type="checkbox" name="situation2" id="enfantsEleves" [(ngModel)]="enfantsEleves">
+            </div>
+            <div class="">
+                <label for="enfantsHandicapes">Enfants handicapés</label>
+                <input type="checkbox" name="situation2" id="enfantsHandicapes"  [(ngModel)]="enfantsHandicapes">
+            </div>
+            <div class="">
+                <label for="maladie">Chomage</label>
+                <input type="checkbox" name="situation2" id="chomage"  [(ngModel)]="chomage">
+            </div>
+            <div class="">
+                <label for="education">Congés parentaux d'éducation</label>
+                <input type="checkbox" name="situation2" id="education"  [(ngModel)]="education">
+            </div>
+            <div class="valider">
+                <button (click)="trimestreSupInfo()">OK</button>
+            </div>    
+        </div>
+
+        <div >
+            <p *ngFor="let item of infoTrimestreSup"> {{ item }} </p>
+        </div>
+    </div>
+</div>
